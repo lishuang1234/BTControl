@@ -1,0 +1,229 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/keyboard_rl_bg" >
+
+            <ImageView
+                android:id="@+id/mainAc_img_btic"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/btlightshow_img_bg"
+                android:scaleType="centerInside"
+                android:src="@drawable/btclose" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="2.8"
+            android:background="@drawable/keyboard_rl_bg" >
+
+            <TextView
+                android:id="@+id/mainAc_tv_inforshow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="蓝牙未打开"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/keyboard_rl_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/mainAc_btn_openbt"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/key_btn_selector"
+                android:text="打开蓝牙" />
+
+            <Button
+                android:id="@+id/mainAc_btn_searchbt"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/key_btn_selector"
+                android:text="搜索设备" />
+
+            <Button
+                android:id="@+id/mainAc_btn_closebt"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/key_btn_selector"
+                android:text="关闭蓝牙" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/keyboard_rl_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/mainAc_btn_openfenshan"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/key_btn_selector"
+                android:clickable="false"
+                android:text="打开风扇" />
+
+            <Button
+                android:id="@+id/mainAc_btn_closefenshan"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/key_btn_selector"
+                android:clickable="false"
+                android:text="关闭风扇" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/mainAc_btn_fen1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/key_btn_selector"
+                android:clickable="false"
+                android:text="Ⅰ级风" />
+
+            <Button
+                android:id="@+id/mainAc_btn_fen2"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/key_btn_selector"
+                android:clickable="false"
+                android:text="Ⅱ级风" />
+
+            <Button
+                android:id="@+id/mainAc_btn_fen3"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/key_btn_selector"
+                android:clickable="false"
+                android:text="Ⅲ级风" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/mainAc_btn_mode_intel"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/key_btn_selector"
+                android:clickable="false"
+                android:text="智能模式" />
+
+            <Button
+                android:id="@+id/mainAc_btn_mode_manual"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/key_btn_selector"
+                android:clickable="false"
+                android:text="手动模式" />
+        </LinearLayout>
+        
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/key_btn_selector"
+                android:clickable="false"
+                android:text="附加功能" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
