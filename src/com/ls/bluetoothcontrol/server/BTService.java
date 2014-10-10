@@ -9,6 +9,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.UUID;
 
 import android.R.integer;
@@ -43,6 +45,8 @@ public class BTService extends Service {
 	public InputStream inPutStream;
 	private int sendInforString;
 	private StringBuffer buffer;
+	private Timer mTimer;
+	private TimerTask mTask;
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -69,10 +73,46 @@ public class BTService extends Service {
 		filter.addAction(CommonName.FENS_1);
 		filter.addAction(CommonName.FENS_2);
 		filter.addAction(CommonName.FENS_3);
+		filter.addAction(CommonName.MODE_INTEL);
 		registerReceiver(receiver, filter);
-
+		initTaskToReceive();
 		sentToBTList = new Intent();
 		sendToMainAc = new Intent();
+
+	}
+
+	private void initTaskToReceive() {
+		// TODO Auto-generated method stub
+		mTask = new TimerTask() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				// BufferedReader in = new BufferedReader(new InputStreamReader(
+				// inPutStream));
+				byte[] a = new byte[6];
+				buffer = new StringBuffer();
+				String line = "";
+				String backInfor = "";
+				try {
+					// while ((line = in.readLine()) != null) {
+					// buffer.append(line);
+					// System.out.println("----------------------->>>>"
+					// + buffer.toString());
+					// backInfor = buffer.toString();
+					// }
+					inPutStream.read(a);
+					backInfor = new String(a);
+					System.out.println("----------------------->>>>"
+							+ backInfor);
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		};
 
 	}
 
@@ -91,34 +131,6 @@ public class BTService extends Service {
 		unregisterReceiver(receiver);
 		super.onDestroy();
 	}
-
-	/**
-	 * 异步任务发送所得蓝牙设备信息
-	 * 
-	 * @author Administrator
-	 * 
-	 */
-	/*
-	 * protected class Work extends AsyncTask<Boolean, String, String> {
-	 * 
-	 * @Override protected void onPostExecute(String result) { // TODO
-	 * Auto-generated method stub super.onPostExecute(result); }
-	 * 
-	 * @Override protected void onPreExecute() { // TODO Auto-generated method
-	 * stub super.onPreExecute();
-	 * 
-	 * }
-	 * 
-	 * @Override protected void onProgressUpdate(String... values) { // TODO
-	 * Auto-generated method stub super.onProgressUpdate(values); }
-	 * 
-	 * @Override protected String doInBackground(Boolean... params) { // TODO
-	 * Auto-generated method stub while (true) { if (isDiscover) {
-	 * System.out.println("stop ---Server");
-	 * sentToBTList.setAction(CommonName.DEVICE_STRING);
-	 * sentToBTList.putStringArrayListExtra("device", turnString(deviceList));
-	 * sendBroadcast(sentToBTList);// 发送获得的蓝牙列表 break; } } return null; } }
-	 */
 
 	public ArrayList<String> turnString(List<BluetoothDevice> deviceList2) {
 		// TODO Auto-generated method stub
@@ -172,6 +184,8 @@ public class BTService extends Service {
 				sendInforString = (byte) 0x55;
 				new Oper().start();
 				System.out.println("开启风扇！");
+				// new Rece().start();
+				receiverTaskStart();
 			} else if (action.equals(CommonName.FENS_1)) {
 				sendInforString = (byte) 0x33;
 				new Oper().start();
@@ -188,6 +202,10 @@ public class BTService extends Service {
 				sendInforString = (byte) 0x44;
 				new Oper().start();
 				System.out.println("关闭风扇！");
+			} else if (action.equals(CommonName.MODE_INTEL)) {// 关闭风扇
+				sendInforString = (byte) 0x66;
+				new Oper().start();
+				System.out.println("智能模式！");
 			}
 		}
 	}
@@ -200,6 +218,11 @@ public class BTService extends Service {
 			outStream.close();
 			inPutStream.close();
 		}
+	}
+
+	private void receiverTaskStart() {
+		// TODO Auto-generated method stub
+		mTimer.schedule(mTask, 0, 1000);
 	}
 
 	private void connectBlue(int position) {
@@ -264,6 +287,7 @@ public class BTService extends Service {
 			// TODO Auto-generated method stub
 			try {
 				outStream.write(sendInforString);// 发送消息
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

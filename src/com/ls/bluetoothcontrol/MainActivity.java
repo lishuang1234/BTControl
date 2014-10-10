@@ -12,7 +12,6 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -187,6 +186,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.mainAc_btn_closefenshan:// 关闭风扇
 			intent.setAction(CommonName.CLOSE_FENSHAN);
 			showInforTextView.setText("已关闭风扇！");
+			break;
+		case R.id.mainAc_btn_mode_intel:
+			intent.setAction(CommonName.MODE_INTEL);
+			showInforTextView.setText("已开启智能模式！");
 			break;
 
 		}

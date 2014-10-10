@@ -11,5 +11,6 @@ public class CommonName {
 	public static final String FENS_1 = "com.ls.bluetoothcontrol.action.fen1";
 	public static final String FENS_2 = "com.ls.bluetoothcontrol.action.fen2";
 	public static final String FENS_3 = "com.ls.bluetoothcontrol.action.fen3";
+	public static final String MODE_INTEL = "com.ls.bluetoothcontrol.action.mode_intel";
 
 }
